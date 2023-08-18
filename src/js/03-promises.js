@@ -27,7 +27,7 @@ function createPromise(event) {
   setTimeout(() => {
     position = 1
     stepValue = 0
-  }, step.value * amount + delay.value)
+  }, 0)
 }
 
 //Функция для создания промисов
