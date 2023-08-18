@@ -2,6 +2,7 @@
 import flatpickr from "flatpickr";
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const startButton = document.querySelector("button[data-start]")
 const myInput = document.querySelector("#datetime-picker");
@@ -15,7 +16,7 @@ flatpickr("#datetime-picker", {
         const nowDate = new Date()
         if (selectedDates[0] - nowDate < 0) {
             startButton.setAttribute("disabled", "")
-            window.alert("Please choose a date in the future")    
+            Notify.failure("Please choose a date in the future")    
         } 
         else {
             timerNeedTime = Math.ceil((selectedDates[0] - nowDate) / 1000)
