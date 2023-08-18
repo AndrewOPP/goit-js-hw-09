@@ -31,8 +31,9 @@ function createPromise(event) {
 
 //Функция для создания промисов
 function newPromise(position, stepValue) {
-// Создание промисов
-let a = new Promise((resolve, reject) => {
+// Создание промисов и обработка промисов
+  setTimeout(() => {
+    let a = new Promise((resolve, reject) => {
   const shouldResolve = Math.random() > 0.3;
   if (shouldResolve) {
        resolve()
@@ -40,8 +41,6 @@ let a = new Promise((resolve, reject) => {
        reject()
     }
   }) 
-  // Обработка промисов
-  setTimeout(() => {
     returnResult(a, position, stepValue)
   }, stepValue - Number(delay.value))
 }
