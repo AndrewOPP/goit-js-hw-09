@@ -1,13 +1,13 @@
-const buttonSubmit = document.querySelector("button")
 const form = document.querySelector("form")
 const { delay, step, amount } = form.elements
-buttonSubmit.addEventListener("click", createPromise)
+form.addEventListener("submit", createPromise)
 let position = 0
 let stepValue = 0
 
-
 //Функция для решения задания
-function createPromise() {
+function createPromise(event) {
+  event.preventDefault()
+
 // Вызов первого элемента в нужное время
   setTimeout(() => {
     newPromise(position, Number(delay.value))
@@ -29,7 +29,7 @@ function createPromise() {
 
 }
 
-  //Функция для создания промисов
+//Функция для создания промисов
 function newPromise(position, stepValue) {
 // Создание промисов
 let a = new Promise((resolve, reject) => {
@@ -47,7 +47,7 @@ let a = new Promise((resolve, reject) => {
 }
 
 
-  //Функция для обработкм промисов
+  //Функция для обработки промисов
 function returnResult(a, position, stepValue) {
   a.then(() => {
     console.log(`✅ Fulfilled promise ${position} in ${stepValue}ms`);
